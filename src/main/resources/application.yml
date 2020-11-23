@@ -1,3 +1,13 @@
+logging:
+    file: logs/mod-data-extractor.log
+    level:
+      org:
+        folio.rest: INFO
+        hibernate: INFO
+        springframework:
+          security: INFO
+          web: INFO
+
 server:
     port: 9000
 
