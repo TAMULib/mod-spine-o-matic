@@ -1,8 +1,8 @@
 logging:
-    file: logs/mod-data-extractor.log
+    file: logs/mod-spine-o-matic.log
     level:
       org:
-        folio.rest: INFO
+        tamu.modspineomatic: INFO
         hibernate: INFO
         springframework:
           security: INFO
@@ -12,16 +12,13 @@ server:
     port: 9000
 
 spring:
-    data.rest:
-        returnBodyOnCreate: true
-        returnBodyOnUpdate: true
     datasource:
         platform: h2
-        url: jdbc:h2:./target/mod-data-extractor;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        url: jdbc:h2:./target/mod-spine-o-matic;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
         driverClassName: org.h2.Driver
         # platform: postgres
         # driverClassName: org.postgresql.Driver
-        # url: jdbc:postgresql://localhost:5432/mod-data-extractor
+        # url: jdbc:postgresql://localhost:5432/mod-spine-o-matic
     
         username: folio
         password: folio
