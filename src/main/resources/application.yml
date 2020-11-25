@@ -11,6 +11,12 @@ logging:
 server:
     port: 9000
 
+okapi:
+    url: https://localhost:9130
+    credentials:
+        username: diku_admin
+        password: admin
+
 spring:
     datasource:
         platform: h2
