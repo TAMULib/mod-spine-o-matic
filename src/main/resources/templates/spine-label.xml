@@ -1,0 +1,9 @@
+<item link="">
+  <holding_data link="">
+  </holding_data>
+  <item_data>
+    <year_of_issue>#{year_of_issue}<year_of_issue>
+    <call_number>#{call_number}</call_number>
+    <parsed_call_number>#{parsed_call_number}</parsed_call_number>
+  </item_data>
+</item>
