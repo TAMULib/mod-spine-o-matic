@@ -1,0 +1,6 @@
+spring:
+  mcv:
+    view:
+      suffix: .xml
+      templateMode: XML
+      cacheable: false
