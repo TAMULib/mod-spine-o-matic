@@ -18,6 +18,11 @@ okapi:
     password: admin
 
 spring:
+  mcv:
+    view:
+      suffix: .xml
+      templateMode: XML
+      cacheable: false
   datasource:
     platform: h2
     url: jdbc:h2:./target/mod-spine-o-matic;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
