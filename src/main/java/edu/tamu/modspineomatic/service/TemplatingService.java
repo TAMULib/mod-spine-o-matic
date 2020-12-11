@@ -3,6 +3,8 @@ package edu.tamu.modspineomatic.service;
 import java.util.Locale;
 import java.util.Optional;
 
+import javax.annotation.PostConstruct;
+
 import com.fasterxml.jackson.databind.JsonNode;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import org.thymeleaf.context.Context;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 
 import edu.tamu.modspineomatic.config.model.Location;
-import edu.tamu.modspineomatic.config.model.Locations;
+import edu.tamu.modspineomatic.config.model.LocationReference;
 
 @Service
 public class TemplatingService {
@@ -35,7 +37,7 @@ public class TemplatingService {
     private SpringTemplateEngine templateEngine;
 
     @Autowired
-    private Locations locations;
+    private LocationReference reference;
 
     public String templateResponse(JsonNode itemNode) {
         return templateEngine.process(SPINE_LABEL, populateContext(itemNode));
@@ -43,8 +45,6 @@ public class TemplatingService {
 
     private Context populateContext(JsonNode itemNode) {
         Context context = new Context(Locale.getDefault());
-
-        System.out.println("\n\n\n" + itemNode.toString() + "\n\n\n");
 
         String chron = itemNode.get(CHRONOLOGY_PROPERTY) != null ? itemNode.get(CHRONOLOGY_PROPERTY).asText() : "";
         context.setVariable(CHRONOLOGY, chron);
@@ -84,7 +84,7 @@ public class TemplatingService {
 
         String locationUUID = itemNode.get(EFFECTIVE_LOCATION_PROPERTY).asText();
 
-        Optional<Location> locationOption = locations.getLocations().stream()
+        Optional<Location> locationOption = reference.getLocations().stream()
             .filter(l -> l.getId().equals(locationUUID))
             .findAny();
 

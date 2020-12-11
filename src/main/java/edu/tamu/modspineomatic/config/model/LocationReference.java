@@ -1,19 +1,21 @@
 package edu.tamu.modspineomatic.config.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+import edu.tamu.modspineomatic.factory.YamlPropertySourceFactory;
 import lombok.Data;
 
 @Data
 @Component
-@PropertySource(value = "classpath:reference/locations.json")
 @ConfigurationProperties
-public class Locations {
+@PropertySource(value = "classpath:reference/locations.yml", factory = YamlPropertySourceFactory.class)
+public class LocationReference {
 
-    private List<Location> locations;
+    private List<Location> locations = new ArrayList<>();
 
 }

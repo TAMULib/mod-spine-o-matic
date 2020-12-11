@@ -21,7 +21,6 @@ public class CallNumberController {
 
     @GetMapping
     public String get(@RequestParam(required = true) String barcode) {
-        System.out.println("\n\n\nGetting: " + barcode + "\n\n\n");
         return spineLabelPrinter.getSpineLabel(tenant, barcode);
     }
 
