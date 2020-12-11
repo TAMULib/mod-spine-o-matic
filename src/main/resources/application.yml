@@ -9,17 +9,17 @@ logging:
         web: INFO
 
 server:
-  port: 9000
+  port: 80
 
 okapi:
-  url: https://localhost:9130
+  url: https://folio-okapi-q2.library.tamu.edu
   credentials:
-    username: diku_admin
+    username: tamu_admin
     password: admin
+  tenant: tamu
 
 spring:
-  mcv:
-    view:
+  thymeleaf:
       suffix: .xml
       templateMode: XML
       cacheable: false
@@ -31,7 +31,6 @@ spring:
     # driverClassName: org.postgresql.Driver
     # url: jdbc:postgresql://localhost:5432/mod-spine-o-matic
 
-    tenant: diku
     username: folio
     password: folio
 h2:

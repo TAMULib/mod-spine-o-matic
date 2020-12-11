@@ -45,13 +45,35 @@ public class OkapiService {
 
     public JsonNode fetchItem(String tenant, String token, String barcode) {
         HttpEntity<?> entity = new HttpEntity<>(headers(tenant, token));
-        String url = okapi.getUrl() + "/items?query=barcode==" + barcode;
+        String url = okapi.getUrl() + "/item-storage/items?query=barcode==" + barcode;
+        ResponseEntity<JsonNode> response = restTemplate.exchange(url, HttpMethod.GET, entity, JsonNode.class);
+        if (response.getStatusCodeValue() == 200) {
+            return response.getBody().get("items").get(0);
+        }
+        log.error("Failed to lookup item: " + response.getStatusCodeValue());
+        throw new RuntimeException("Failed to lookup item: " + response.getStatusCodeValue());
+    }
+
+    public JsonNode fetchHoldings(String tenant, String token, String holdingsId) {
+        HttpEntity<?> entity = new HttpEntity<>(headers(tenant, token));
+        String url = okapi.getUrl() + "/holdings-storage/holdings/" + holdingsId;
         ResponseEntity<JsonNode> response = restTemplate.exchange(url, HttpMethod.GET, entity, JsonNode.class);
         if (response.getStatusCodeValue() == 200) {
             return response.getBody();
         }
-        log.error("Failed to lookup item: " + response.getStatusCodeValue());
-        throw new RuntimeException("Failed to lookup item: " + response.getStatusCodeValue());
+        log.error("Failed to lookup holdings: " + response.getStatusCodeValue());
+        throw new RuntimeException("Failed to lookup holdings: " + response.getStatusCodeValue());
+    }
+
+    public JsonNode fetchInstance(String tenant, String token, String instanceId) {
+        HttpEntity<?> entity = new HttpEntity<>(headers(tenant, token));
+        String url = okapi.getUrl() + "/instance-storage/instances/" + instanceId;
+        ResponseEntity<JsonNode> response = restTemplate.exchange(url, HttpMethod.GET, entity, JsonNode.class);
+        if (response.getStatusCodeValue() == 200) {
+            return response.getBody();
+        }
+        log.error("Failed to lookup instance: " + response.getStatusCodeValue());
+        throw new RuntimeException("Failed to lookup instance: " + response.getStatusCodeValue());
     }
 
     private HttpHeaders headers(String tenant, String token) {

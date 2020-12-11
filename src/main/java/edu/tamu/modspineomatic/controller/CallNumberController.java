@@ -7,26 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.tamu.modspineomatic.service.OkapiService;
-import edu.tamu.modspineomatic.service.TemplatingService;
+import edu.tamu.modspineomatic.service.SpineLabelPrinter;
 
 @RestController
 @RequestMapping("/call-number")
 public class CallNumberController {
 
-    @Value("${spring.datasource.tenant}")
+    @Value("${okapi.tenant}")
     private String tenant;
 
     @Autowired
-    private OkapiService okapiService;
-
-    @Autowired
-    private TemplatingService templatingService;
+    private SpineLabelPrinter spineLabelPrinter;
 
     @GetMapping
     public String get(@RequestParam(required = true) String barcode) {
-        String token = okapiService.getToken(tenant);
-        return templatingService.templateResponse(okapiService.fetchItem(tenant, token, barcode));
+        System.out.println("\n\n\nGetting: " + barcode + "\n\n\n");
+        return spineLabelPrinter.getSpineLabel(tenant, barcode);
     }
 
 }
