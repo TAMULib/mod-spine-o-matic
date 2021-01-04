@@ -1,9 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <item link="">
+  <bib_data>
+    <title th:text="${title}"></title>
+  </bib_data>
   <holding_data link="">
+    <call_number_prefix th:text="${call_number_prefix}"></call_number_prefix>
+    <call_number th:text="${call_number}"></call_number>
+    <call_number_type th:attr="desc=${call_number_type_desc}" th:text="${call_number_type}"></call_number_type>
   </holding_data>
   <item_data>
-    <year_of_issue>#{year_of_issue}<year_of_issue>
-    <call_number>#{call_number}</call_number>
-    <parsed_call_number>#{parsed_call_number}</parsed_call_number>
+    <year_of_issue th:text="${chronology}"></year_of_issue>
+    <description></description>
+    <library th:attr="desc=${library_description}" th:text="${library_code}"></library>
+    <location th:attr="desc=${location_name}" th:text="location_code"></location>
   </item_data>
 </item>

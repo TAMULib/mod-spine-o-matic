@@ -1,3 +1,4 @@
+---
 logging:
   file: logs/mod-spine-o-matic.log
   level:
@@ -8,21 +9,26 @@ logging:
         security: INFO
         web: INFO
 
+---
 server:
-  port: 9000
+  port: 80
 
+---
 okapi:
-  url: https://localhost:9130
+  url: https://folio-okapi-q2.library.tamu.edu
   credentials:
-    username: diku_admin
+    username: tamu_admin
     password: admin
+  tenant: tamu
 
+---
 spring:
-  mcv:
-    view:
+
+  thymeleaf:
       suffix: .xml
       templateMode: XML
       cacheable: false
+
   datasource:
     platform: h2
     url: jdbc:h2:./target/mod-spine-o-matic;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
@@ -31,13 +37,14 @@ spring:
     # driverClassName: org.postgresql.Driver
     # url: jdbc:postgresql://localhost:5432/mod-spine-o-matic
 
-    tenant: diku
     username: folio
     password: folio
-h2:
-  console:
-    enabled: true
-    path: /h2console
+
   jpa:
-  database-platform: org.hibernate.dialect.H2Dialect
-  # database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.H2Dialect
+    # database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  h2:
+    console:
+      enabled: true
+      path: /h2console
