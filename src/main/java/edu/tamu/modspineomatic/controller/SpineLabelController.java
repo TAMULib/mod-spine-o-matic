@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.tamu.modspineomatic.service.SpineLabelPrinter;
 
 @RestController
-@RequestMapping("/call-number")
-public class CallNumberController {
+@RequestMapping("/spine-label")
+public class SpineLabelController {
 
     @Value("${okapi.tenant}")
     private String tenant;
