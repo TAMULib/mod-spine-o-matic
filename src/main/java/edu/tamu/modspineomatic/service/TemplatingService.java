@@ -53,7 +53,12 @@ public class TemplatingService {
         String chron = itemNode.get(CHRONOLOGY_PROPERTY) != null ? itemNode.get(CHRONOLOGY_PROPERTY).asText() : "";
         context.setVariable(CHRONOLOGY, chron);
         context.setVariable(CALL_NUMBER, itemNode.get(EFFECTIVE_CALL_NUMBER_PROPERTY).get(CALL_NUMBER_PROPERTY).asText());
-        context.setVariable(CALL_NUMBER_PREFIX, itemNode.get(EFFECTIVE_CALL_NUMBER_PROPERTY).get(CALL_NUMBER_PREFIX).asText());
+
+        JsonNode callNumberPrefixNode = itemNode.get(EFFECTIVE_CALL_NUMBER_PROPERTY).get(CALL_NUMBER_PREFIX);
+        if (callNumberPrefixNode != null) {
+            context.setVariable(CALL_NUMBER_PREFIX, callNumberPrefixNode.asText());
+        }
+
         // TODO: parse call number if needed
         context.setVariable(PARSED_CALL_NUMBER, itemNode.get(EFFECTIVE_CALL_NUMBER_PROPERTY).get(CALL_NUMBER_PROPERTY).asText());
 
