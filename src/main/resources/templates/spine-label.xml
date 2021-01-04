@@ -4,6 +4,7 @@
     <title th:text="${title}"></title>
   </bib_data>
   <holding_data link="">
+    <call_number_prefix th:text="${call_number_prefix}"></call_number_prefix>
     <call_number th:text="${call_number}"></call_number>
     <call_number_type th:attr="desc=${call_number_type_desc}" th:text="${call_number_type}"></call_number_type>
   </holding_data>
