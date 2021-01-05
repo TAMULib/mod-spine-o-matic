@@ -46,5 +46,5 @@ CMD java -XX:ActiveProcessorCount=${ACTIVE_PROCESSOR_COUNT} -jar ./mod-spine-o-m
   --spring.datasource.username=${SPRING_DATASOURCE_USERNAME} --spring.datasource.password=${SPRING_DATASOURCE_PASSWORD} \
   --spring.h2.console.enabled=${SPRING_H2_CONSOLE_ENABLED} --spring.jpa.database-platform=${SPRING_JPA_DATABASE_PLATFORM} \
   --spring.jpa.properties.hibernate.dialect=${SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT} \
-  --okapi.tenant=${TENANT_DEFAULT_TENANT} --okapi.url=${OKAPI_URL} \
+  --okapi.tenant=${OKAPI_TENANT} --okapi.url=${OKAPI_URL} \
   --okapi.credentials.username=${OKAPI_CREDENTIALS_USERNAME} --okapi.credentials.password=${OKAPI_CREDENTIALS_PASSWORD}
