@@ -17,13 +17,13 @@ import edu.tamu.modspineomatic.model.Location;
 @Service
 public class LocationService {
 
+    private final List<Location> locations = new ArrayList<>();
+
     @Autowired
     private OkapiService okapiService;
 
     @Value("${okapi.tenant}")
     private String tenant;
-
-    private List<Location> locations = new ArrayList<>();
 
     @PostConstruct
     public void init() {
@@ -33,7 +33,6 @@ public class LocationService {
     @Scheduled(cron = "0 0 0 * * *")
     private void fetchLocations() {
         String token = okapiService.getToken(tenant);
-        System.out.println("fetching locations");
         setLocations(StreamSupport.stream(okapiService.fetchLocations(tenant, token).spliterator(), false).map(Location::from).collect(Collectors.toList()));
     }
 

@@ -51,7 +51,6 @@ public class CallNumberTypeService {
     @Scheduled(cron = "0 0 0 * * *")
     public void fetchCallNumberTypes() {
         String token = okapiService.getToken(tenant);
-        System.out.println("fetching call numbers");
         setCallNumberTypes(StreamSupport.stream(okapiService.fetchCallNumberTypes(tenant, token).spliterator(), false)
             .map(CallNumberType::from)
             .map(this::addType)

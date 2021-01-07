@@ -17,13 +17,13 @@ import edu.tamu.modspineomatic.model.Library;
 @Service
 public class LibraryService {
 
+    private final List<Library> libraries = new ArrayList<>();
+
     @Autowired
     private OkapiService okapiService;
 
     @Value("${okapi.tenant}")
     private String tenant;
-
-    private List<Library> libraries = new ArrayList<>();
 
     @PostConstruct
     public void init() {
@@ -33,7 +33,6 @@ public class LibraryService {
     @Scheduled(cron = "0 0 0 * * *")
     private void fetchLibraries() {
         String token = okapiService.getToken(tenant);
-        System.out.println("fetching libraries");
         setLibraries(StreamSupport.stream(okapiService.fetchLibraries(tenant, token).spliterator(), false).map(Library::from).collect(Collectors.toList()));
     }
 
