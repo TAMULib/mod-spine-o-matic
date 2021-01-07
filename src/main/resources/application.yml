@@ -18,7 +18,7 @@ okapi:
   url: https://folio-okapi-q3.library.tamu.edu
   credentials:
     username: tamu_admin
-    password:
+    password: admin
   tenant: tamu
 
 ---
