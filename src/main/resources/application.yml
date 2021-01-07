@@ -28,23 +28,3 @@ spring:
       suffix: .xml
       templateMode: XML
       cacheable: false
-
-  datasource:
-    platform: h2
-    url: jdbc:h2:./target/mod-spine-o-matic;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    driverClassName: org.h2.Driver
-    # platform: postgres
-    # driverClassName: org.postgresql.Driver
-    # url: jdbc:postgresql://localhost:5432/mod-spine-o-matic
-
-    username: folio
-    password: folio
-
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    # database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-  h2:
-    console:
-      enabled: true
-      path: /h2console
