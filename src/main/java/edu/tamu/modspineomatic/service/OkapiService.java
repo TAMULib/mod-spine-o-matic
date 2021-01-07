@@ -21,7 +21,7 @@ import edu.tamu.modspineomatic.config.model.Okapi;
 
 @Service
 public class OkapiService {
-    
+
     private static final Logger log = LoggerFactory.getLogger(OkapiService.class);
 
     @Autowired
@@ -124,4 +124,5 @@ public class OkapiService {
         headers.set("X-Okapi-Tenant", tenant);
         return headers;
     }
+
 }
