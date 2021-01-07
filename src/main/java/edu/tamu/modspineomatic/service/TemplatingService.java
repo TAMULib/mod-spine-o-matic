@@ -21,13 +21,13 @@ public class TemplatingService {
     private static final String CHRONOLOGY = "chronology";
     private static final String CALL_NUMBER = "call_number";
     private static final String CALL_NUMBER_PREFIX = "call_number_prefix";
-    private static final String PARSED_CALL_NUMBER = "parsed_call_number"; 
     private static final String CALL_NUMBER_TYPE = "call_number_type";
     private static final String CALL_NUMBER_TYPE_DESC = "call_number_type_desc";
     private static final String LOCATION_NAME = "location_name";
     private static final String LOCATION_CODE = "location_code";
     private static final String LIBRARY_DESCRIPTION = "library_description";
     private static final String LIBRARY_CODE = "library_code";
+
     private static final String CHRONOLOGY_PROPERTY = "chronology";
     private static final String EFFECTIVE_CALL_NUMBER_PROPERTY = "effectiveCallNumberComponents";
     private static final String CALL_NUMBER_PROPERTY = "callNumber";
@@ -63,9 +63,6 @@ public class TemplatingService {
             context.setVariable(CALL_NUMBER_PREFIX, callNumberPrefixNode.asText());
         }
 
-        // TODO: parse call number if needed
-        context.setVariable(PARSED_CALL_NUMBER, itemNode.get(EFFECTIVE_CALL_NUMBER_PROPERTY).get(CALL_NUMBER_PROPERTY).asText());
-
         String callNumberUUID = itemNode.get(EFFECTIVE_CALL_NUMBER_PROPERTY).get(CALL_NUMBER_TYPE_PROPERTY).asText();
 
         Optional<CallNumberType> callNumberTypeOption = callNumberTypeService.getCallNumberTypes().stream()
@@ -100,9 +97,6 @@ public class TemplatingService {
                 context.setVariable(LIBRARY_CODE, library.getCode());
             }
         }
-
-        // TODO: Do we need to do anything with this?
-        context.setVariable("title", "title");
 
         return context;
     }
