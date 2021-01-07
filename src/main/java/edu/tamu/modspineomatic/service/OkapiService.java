@@ -3,6 +3,7 @@ package edu.tamu.modspineomatic.service;
 import java.util.Arrays;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,6 +72,39 @@ public class OkapiService {
         ResponseEntity<JsonNode> response = restTemplate.exchange(url, HttpMethod.GET, entity, JsonNode.class);
         if (response.getStatusCodeValue() == 200) {
             return response.getBody();
+        }
+        log.error("Failed to lookup instance: " + response.getStatusCodeValue());
+        throw new RuntimeException("Failed to lookup instance: " + response.getStatusCodeValue());
+    }
+
+    public ArrayNode fetchCallNumberTypes(String tenant, String token) {
+        HttpEntity<?> entity = new HttpEntity<>(headers(tenant, token));
+        String url = okapi.getUrl() + "/call-number-types?limit=999";
+        ResponseEntity<JsonNode> response = restTemplate.exchange(url, HttpMethod.GET, entity, JsonNode.class);
+        if (response.getStatusCodeValue() == 200) {
+            return (ArrayNode) response.getBody().get("callNumberTypes");
+        }
+        log.error("Failed to fetch call number types: " + response.getStatusCodeValue());
+        throw new RuntimeException("Failed to fetch call number types: " + response.getStatusCodeValue());
+    }
+
+    public ArrayNode fetchLibraries(String tenant, String token) {
+        HttpEntity<?> entity = new HttpEntity<>(headers(tenant, token));
+        String url = okapi.getUrl() + "/location-units/libraries?limit=999";
+        ResponseEntity<JsonNode> response = restTemplate.exchange(url, HttpMethod.GET, entity, JsonNode.class);
+        if (response.getStatusCodeValue() == 200) {
+            return (ArrayNode) response.getBody().get("loclibs");
+        }
+        log.error("Failed to lookup instance: " + response.getStatusCodeValue());
+        throw new RuntimeException("Failed to lookup instance: " + response.getStatusCodeValue());
+    }
+
+    public ArrayNode fetchLocations(String tenant, String token) {
+        HttpEntity<?> entity = new HttpEntity<>(headers(tenant, token));
+        String url = okapi.getUrl() + "/locations?limit=999";
+        ResponseEntity<JsonNode> response = restTemplate.exchange(url, HttpMethod.GET, entity, JsonNode.class);
+        if (response.getStatusCodeValue() == 200) {
+            return (ArrayNode) response.getBody().get("locations");
         }
         log.error("Failed to lookup instance: " + response.getStatusCodeValue());
         throw new RuntimeException("Failed to lookup instance: " + response.getStatusCodeValue());

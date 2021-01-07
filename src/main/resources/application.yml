@@ -11,14 +11,14 @@ logging:
 
 ---
 server:
-  port: 80
+  port: 9000
 
 ---
 okapi:
-  url: https://folio-okapi-q2.library.tamu.edu
+  url: https://folio-okapi-q3.library.tamu.edu
   credentials:
     username: tamu_admin
-    password: admin
+    password:
   tenant: tamu
 
 ---
@@ -28,3 +28,26 @@ spring:
       suffix: .xml
       templateMode: XML
       cacheable: false
+
+---
+call-number-types:
+  - name: Dewey
+    type: 1
+  - name: Library of Congress
+    type: 0
+  - name: National Library of Medicine
+    type: 0
+  - name: Superintendent of Documents
+    type: 3
+  - name: No information provided
+    type: 4
+  - name: Other scheme
+    type: 4
+  - name: Shelved separately
+    type: 4
+  - name: Shelving control number
+    type: 4
+  - name: Source specified in subfield $2
+    type: 4
+  - name: Title
+    type: 4

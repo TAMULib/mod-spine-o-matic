@@ -20,5 +20,5 @@ public class SpineLabelService implements SpineLabelPrinter {
 
         return templatingService.templateResponse(itemNode);
     }
-    
+
 }
