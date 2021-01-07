@@ -95,8 +95,8 @@ public class OkapiService {
         if (response.getStatusCodeValue() == 200) {
             return (ArrayNode) response.getBody().get("loclibs");
         }
-        log.error("Failed to lookup instance: " + response.getStatusCodeValue());
-        throw new RuntimeException("Failed to lookup instance: " + response.getStatusCodeValue());
+        log.error("Failed to fetch libraries: " + response.getStatusCodeValue());
+        throw new RuntimeException("Failed to fetch libraries: " + response.getStatusCodeValue());
     }
 
     public ArrayNode fetchLocations(String tenant, String token) {
@@ -106,8 +106,8 @@ public class OkapiService {
         if (response.getStatusCodeValue() == 200) {
             return (ArrayNode) response.getBody().get("locations");
         }
-        log.error("Failed to lookup instance: " + response.getStatusCodeValue());
-        throw new RuntimeException("Failed to lookup instance: " + response.getStatusCodeValue());
+        log.error("Failed to fetch locations: " + response.getStatusCodeValue());
+        throw new RuntimeException("Failed to fetch locations: " + response.getStatusCodeValue());
     }
 
     private HttpHeaders headers(String tenant, String token) {
