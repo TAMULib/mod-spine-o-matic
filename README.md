@@ -11,7 +11,7 @@ See the file ["LICENSE"](LICENSE) for more information.
 
 There is a single endpoint `/spine-label?identifier={item barcode|item hrid}`.
 
-## Samples
+## Sample use with SpineOMatic
 
 ### Both enumeration and chronology populated
 | barcode      | hrid          |
