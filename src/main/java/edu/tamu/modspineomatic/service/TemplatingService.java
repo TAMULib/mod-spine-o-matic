@@ -18,6 +18,7 @@ import edu.tamu.modspineomatic.model.Location;
 public class TemplatingService {
 
     private static final String SPINE_LABEL = "spine-label";
+    private static final String ENUMERATION = "enumeration";
     private static final String CHRONOLOGY = "chronology";
     private static final String CALL_NUMBER = "call_number";
     private static final String CALL_NUMBER_PREFIX = "call_number_prefix";
@@ -29,6 +30,7 @@ public class TemplatingService {
     private static final String LIBRARY_CODE = "library_code";
     private static final String LOCATION_GLOSS = "location_gloss";
 
+    private static final String ENUMERATION_PROPERTY = "enumeration";
     private static final String CHRONOLOGY_PROPERTY = "chronology";
     private static final String EFFECTIVE_CALL_NUMBER_PROPERTY = "effectiveCallNumberComponents";
     private static final String CALL_NUMBER_PROPERTY = "callNumber";
@@ -58,8 +60,13 @@ public class TemplatingService {
     private Context populateContext(JsonNode itemNode) {
         Context context = new Context(Locale.getDefault());
 
-        String chron = itemNode.get(CHRONOLOGY_PROPERTY) != null ? itemNode.get(CHRONOLOGY_PROPERTY).asText() : "";
-        context.setVariable(CHRONOLOGY, chron);
+        if (itemNode.has(ENUMERATION_PROPERTY)) {
+            context.setVariable(ENUMERATION, itemNode.get(ENUMERATION_PROPERTY).asText());
+        }
+        if (itemNode.has(CHRONOLOGY_PROPERTY)) {
+            context.setVariable(CHRONOLOGY, itemNode.get(CHRONOLOGY_PROPERTY).asText());
+        }
+
         context.setVariable(CALL_NUMBER, itemNode.get(EFFECTIVE_CALL_NUMBER_PROPERTY).get(CALL_NUMBER_PROPERTY).asText());
 
         JsonNode callNumberPrefixNode = itemNode.get(EFFECTIVE_CALL_NUMBER_PROPERTY).get(CALL_NUMBER_PREFIX_PROPERTY);

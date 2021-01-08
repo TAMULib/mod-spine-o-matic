@@ -9,7 +9,8 @@
     <call_number_type th:attr="desc=${call_number_type_desc}" th:text="${call_number_type}"></call_number_type>
   </holding_data>
   <item_data>
-    <year_of_issue th:text="${chronology}"></year_of_issue>
+    <enumeration th:text="${enumeration}"></enumeration>
+    <chronology th:text="${chronology}"></chronology>
     <description></description>
     <library th:attr="desc=${library_description}" th:text="${library_code}"></library>
     <location th:attr="desc=${location_name}" th:text="location_code"></location>
