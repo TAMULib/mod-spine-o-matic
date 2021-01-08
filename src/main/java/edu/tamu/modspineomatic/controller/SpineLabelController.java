@@ -20,8 +20,8 @@ public class SpineLabelController {
     private SpineLabelPrinter spineLabelPrinter;
 
     @GetMapping
-    public String get(@RequestParam(required = true) String barcode) {
-        return spineLabelPrinter.getSpineLabel(tenant, barcode);
+    public String get(@RequestParam(required = true) String identifier) {
+        return spineLabelPrinter.getSpineLabel(tenant, identifier);
     }
 
 }
