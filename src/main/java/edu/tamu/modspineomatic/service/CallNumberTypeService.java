@@ -37,6 +37,9 @@ public class CallNumberTypeService {
     @Value("${okapi.tenant}")
     private String tenant;
 
+    @Value("${default.callNumberType:4}")
+    private String defaultCallNumberType;
+
     @Value("classpath:map/callNumberTypes.json")
     private Resource callNumberTypesMapResource;
 
@@ -77,7 +80,7 @@ public class CallNumberTypeService {
         if (callNumberTypesMap.containsKey(name)) {
             callNumberType.setType(callNumberTypesMap.get(name));
         } else {
-            callNumberType.setType("0");
+            callNumberType.setType(defaultCallNumberType);
         }
         return callNumberType;
     }
