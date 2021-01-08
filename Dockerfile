@@ -34,5 +34,5 @@ EXPOSE ${SERVER_PORT}
 #run java command
 CMD java -XX:ActiveProcessorCount=${ACTIVE_PROCESSOR_COUNT} -jar ./mod-spine-o-matic.jar \
   --logging.level.org.tamu=${LOGGING_LEVEL_TAMU} --server.port=${SERVER_PORT} \
-  --okapi.tenant=${TENANT_DEFAULT_TENANT} --okapi.url=${OKAPI_URL} \
+  --okapi.tenant=${OKAPI_TENANT} --okapi.url=${OKAPI_URL} \
   --okapi.credentials.username=${OKAPI_CREDENTIALS_USERNAME} --okapi.credentials.password=${OKAPI_CREDENTIALS_PASSWORD}
