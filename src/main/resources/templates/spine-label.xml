@@ -10,7 +10,7 @@
   </holding_data>
   <item_data>
     <enumeration th:text="${enumeration}"></enumeration>
-    <year_of_issue th:text="${chronology}"></year_of_issue>
+    <chronology th:text="${chronology}"></chronology>
     <description></description>
     <library th:attr="desc=${library_description}" th:text="${library_code}"></library>
     <location th:attr="desc=${location_name}" th:text="location_code"></location>
