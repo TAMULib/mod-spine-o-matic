@@ -13,6 +13,18 @@ There is a single endpoint `/spine-label?identifier={item barcode|item hrid}`.
 
 ## Sample use with SpineOMatic
 
+Configure Akma Access to mod-spine-o-matic
+
+![access](screenshots/access.png)
+
+Use default call number parsing
+
+![spine](screenshots/spine.png)
+
+Use custom label
+
+![custom](screenshots/custom.png)
+
 ### available XML fields
 
 ```
