@@ -246,120 +246,121 @@ Custom
 
 XML sources:
 ```
-%=parse <call_number>
 <location_gloss>
+<call_number_prefix>
+%=parse <call_number>
 ```
 
 A14823400064
 ```
+MTXT FILM
 BR
 1
 C6418
-MTXT FILM
 ```
 
 A14823883296
 ```
+MTXT FILM
 BR
 1
 C6418
-MTXT FILM
 ```
 
 it00000831473
 ```
+Lit./Wodehouse
 PR
 6029
 R8
 D5
-Lit./Wodehouse
 ```
 
 it00000748781
 ```
+Lit./Wodehouse
 PZ
 3
 W817
 Com
-Lit./Wodehouse
 ```
 
 A14809478998
 ```
+WEIN
 PR
 6001
 B7
 A17
 1977
-WEIN
 ```
 
 A14809479009
 ```
+WEIN
 PS
 3513
 I74
 K3
 1986
-WEIN
 ```
 
 it00002821308
 ```
+Area Studies/Africana
 E
 184
 A1
 M63
-Area Studies/Africana
 ```
 
 it00002821372
 ```
+Area Studies/Africana
 PS
 3561
 A84
 Z95
 1989
-Area Studies/Africana
 ```
 
 it00002821509
 ```
+Area Studies/Africana
 E
 185.61
 W69
 1944
-Area Studies/Africana
 ```
 
 it00002933250
 ```
+Area Studies/Asian
 PL
 998
 U52
 S25
 2003
-Area Studies/Asian
 ```
 
 it00002933253
 ```
+Area Studies/Asian
 PS
 508
 K67
 S87
 2003
-Area Studies/Asian
 ```
 
 it00002690836
 ```
+Area Studies/Asian
 JQ
 1506
 M5
 G68
 2004
-Area Studies/Asian
 ```
 
 ## Additional Information
