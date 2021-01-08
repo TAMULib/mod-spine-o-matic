@@ -20,6 +20,9 @@ There is a single endpoint `/spine-label?identifier={item barcode|item hrid}`.
 | A14814371046 | it00000000006 |
 | A14812022756 | it00000000007 |
 
+barcode: A14811944997
+
+
 ### enumeration null, chronology populated
 | barcode      | hrid          |
 | ------------ | ------------- |
@@ -42,20 +45,20 @@ There is a single endpoint `/spine-label?identifier={item barcode|item hrid}`.
 |              | it00000165945 |
 
 ### location requiring special label printing
-| barcode      | hrid          | type      |
-| ------------ | ------------- | --------- |
-| A14823400064 | it00000498821 | mtxt,film |
-| A14823883296 | it00000498822 | mtxt,film |
-|              | it00000831473 | cush,wode |
-|              | it00000748781 | cush,wode |
-| A14809478998 | it00000667357 | wein      |
-| A14809479009 | it00000667360 | wein      |
-|              | it00002821308 | cush,afri |
-|              | it00002821372 | cush,afri |
-|              | it00002821509 | cush,afri |
-|              | it00002933250 | cush,asia |
-|              | it00002933253 | cush,asia |
-|              | it00002690836 | cush,asia |
+| barcode      | hrid          | location_name |
+| ------------ | ------------- | ------------- |
+| A14823400064 | it00000498821 | mtxt,film     |
+| A14823883296 | it00000498822 | mtxt,film     |
+|              | it00000831473 | cush,wode     |
+|              | it00000748781 | cush,wode     |
+| A14809478998 | it00000667357 | wein          |
+| A14809479009 | it00000667360 | wein          |
+|              | it00002821308 | cush,afri     |
+|              | it00002821372 | cush,afri     |
+|              | it00002821509 | cush,afri     |
+|              | it00002933250 | cush,asia     |
+|              | it00002933253 | cush,asia     |
+|              | it00002690836 | cush,asia     |
 
 ## Additional Information
 
