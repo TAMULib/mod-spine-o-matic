@@ -28,6 +28,7 @@ public class TemplatingService {
     private static final String LOCATION_CODE = "location_code";
     private static final String LIBRARY_DESCRIPTION = "library_description";
     private static final String LIBRARY_CODE = "library_code";
+    private static final String LOCATION_GLOSS = "location_gloss";
 
     private static final String ENUMERATION_PROPERTY = "enumeration";
     private static final String CHRONOLOGY_PROPERTY = "chronology";
@@ -48,6 +49,9 @@ public class TemplatingService {
 
     @Autowired
     private LocationService locationService;
+
+    @Autowired
+    private LocationGlossService locationGlossService;
 
     public String templateResponse(JsonNode itemNode) {
         return templateEngine.process(SPINE_LABEL, populateContext(itemNode));
@@ -93,6 +97,11 @@ public class TemplatingService {
             context.setVariable(LOCATION_NAME, location.getName());
             context.setVariable(LOCATION_CODE, location.getCode());
             String libraryId = location.getLibraryId();
+
+            String locationGloss;
+            if ((locationGloss = locationGlossService.getLocationGlossesMap().get(location.getCode())) != null) {
+                context.setVariable(LOCATION_GLOSS, locationGloss);
+            }
 
             Optional<Library> libraryOption = libraryService.getLibraries().stream()
                 .filter(l -> l.getId().equals(libraryId))

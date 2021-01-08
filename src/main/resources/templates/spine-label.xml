@@ -14,5 +14,6 @@
     <description></description>
     <library th:attr="desc=${library_description}" th:text="${library_code}"></library>
     <location th:attr="desc=${location_name}" th:text="location_code"></location>
+    <location_gloss th:text="${location_gloss}"></location_gloss>
   </item_data>
 </item>
