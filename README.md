@@ -13,7 +13,7 @@ There is a single endpoint `/spine-label?identifier={item barcode|item hrid}`.
 
 ## Sample use with SpineOMatic
 
-Configure Akma Access to mod-spine-o-matic
+Configure Alma Access to mod-spine-o-matic
 
 ![access](screenshots/access.png)
 
