@@ -1,8 +1,8 @@
 {
-  "Dewey": 1,
-  "Library of Congress": 0,
-  "National Library of Medicine": 2,
-  "Superintendent of Documents": 3,
+  "Dewey Decimal classification": 1,
+  "Library of Congress classification": 0,
+  "National Library of Medicine classification": 2,
+  "Superintendent of Documents classification": 3,
   "No information provided": 4,
   "Other scheme": 4,
   "Shelved separately": 4,
