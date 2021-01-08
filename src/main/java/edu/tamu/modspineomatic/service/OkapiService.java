@@ -44,9 +44,20 @@ public class OkapiService {
         throw new RuntimeException("Failed to login: " + response.getStatusCodeValue());
     }
 
-    public JsonNode fetchItem(String tenant, String token, String barcode) {
+    public JsonNode fetchItemByBarcode(String tenant, String token, String barcode) {
         HttpEntity<?> entity = new HttpEntity<>(headers(tenant, token));
         String url = okapi.getUrl() + "/item-storage/items?query=barcode==" + barcode;
+        ResponseEntity<JsonNode> response = restTemplate.exchange(url, HttpMethod.GET, entity, JsonNode.class);
+        if (response.getStatusCodeValue() == 200) {
+            return response.getBody().get("items").get(0);
+        }
+        log.error("Failed to lookup item: " + response.getStatusCodeValue());
+        throw new RuntimeException("Failed to lookup item: " + response.getStatusCodeValue());
+    }
+
+    public JsonNode fetchItemByItemHRID(String tenant, String token, String hrid) {
+        HttpEntity<?> entity = new HttpEntity<>(headers(tenant, token));
+        String url = okapi.getUrl() + "/item-storage/items?query=hrid==" + hrid;
         ResponseEntity<JsonNode> response = restTemplate.exchange(url, HttpMethod.GET, entity, JsonNode.class);
         if (response.getStatusCodeValue() == 200) {
             return response.getBody().get("items").get(0);
