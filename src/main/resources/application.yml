@@ -11,11 +11,11 @@ logging:
 
 ---
 server:
-  port: 80
+  port: 9000
 
 ---
 okapi:
-  url: https://folio-okapi-q2.library.tamu.edu
+  url: https://folio-okapi-q3.library.tamu.edu
   credentials:
     username: tamu_admin
     password: admin
