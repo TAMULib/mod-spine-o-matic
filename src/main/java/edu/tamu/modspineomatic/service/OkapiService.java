@@ -66,12 +66,12 @@ public class OkapiService {
         throw new RuntimeException("Failed to lookup item: " + response.getStatusCodeValue());
     }
 
-    public JsonNode fetchHoldings(String tenant, String token, String holdingsId) {
+    public JsonNode fetchHoldingsByHRID(String tenant, String token, String hrid) {
         HttpEntity<?> entity = new HttpEntity<>(headers(tenant, token));
-        String url = okapi.getUrl() + "/holdings-storage/holdings/" + holdingsId;
+        String url = okapi.getUrl() + "/holdings-storage/holdings?query=hrid==" + hrid;
         ResponseEntity<JsonNode> response = restTemplate.exchange(url, HttpMethod.GET, entity, JsonNode.class);
         if (response.getStatusCodeValue() == 200) {
-            return response.getBody();
+            return response.getBody().get("holdingsRecords").get(0);
         }
         log.error("Failed to lookup holdings: " + response.getStatusCodeValue());
         throw new RuntimeException("Failed to lookup holdings: " + response.getStatusCodeValue());
