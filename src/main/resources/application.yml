@@ -15,7 +15,7 @@ server:
 
 ---
 okapi:
-  url: https://folio-okapi-q3.library.tamu.edu
+  url: https://folio-okapi-r1.library.tamu.edu/
   credentials:
     username: tamu_admin
     password: admin
@@ -25,6 +25,6 @@ okapi:
 spring:
 
   thymeleaf:
-      suffix: .xml
-      templateMode: XML
+      suffix: .txt
+      templateMode: TEXT
       cacheable: false

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item link="">
+  <bib_data>
+    <title>[(${title})]</title>
+  </bib_data>
+  <holding_data link="">
+    <call_number_prefix>[(${call_number_prefix})]</call_number_prefix>
+    <call_number>[(${call_number})]</call_number>
+    <call_number_type desc="[(${call_number_type_desc})]">[(${call_number_type})]</call_number_type>
+    [# th:each="chronology,iter : ${chronologies}"]
+      <chronology_[(${iter.count})]>[(${chronology})]</chronology_[(${iter.count})]>
+      [# th:if="${iter.count} == ${iter.size}"]
+        <chronology_latest>[(${chronology})]</chronology_latest>
+      [/]
+    [/]
+    [# th:each="enumeration,iter : ${enumerations}"]
+      <enumeration_[(${iter.count})]>[(${enumeration})]</enumeration_[(${iter.count})]>
+      [# th:if="${iter.count} == ${iter.size}"]
+        <enumeration_latest>[(${enumeration})]</enumeration_latest>
+      [/]
+    [/]
+  </holding_data>
+  <item_data>
+    <enumeration>[(${enumeration})]</enumeration>
+    <chronology>[(${chronology})]</chronology>
+    <description></description>
+    <library desc="[(${library_description})]">[(${library_code})]</library>
+    <location desc="[(${location_name})]">[(${location_code})]</location>
+    <location_gloss>[(${location_gloss})]</location_gloss>
+  </item_data>
+</item>

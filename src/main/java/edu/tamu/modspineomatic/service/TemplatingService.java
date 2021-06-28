@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -139,18 +141,13 @@ public class TemplatingService {
         Context context = new Context(Locale.getDefault());
 
         if (holdingsNode.has(RECEIVING_HISTORY_PROPERTY)) {
-            List<JsonNode> entries = holdingsNode.get(RECEIVING_HISTORY_PROPERTY).findValues(ENTRIES_PROPERTY);
+            JsonNode entries = holdingsNode.get(RECEIVING_HISTORY_PROPERTY).get(ENTRIES_PROPERTY);
             List<String> enumerations = new ArrayList<>();
             List<String> chronologies = new ArrayList<>();
 
             for (int i = 1; i <= entries.size(); i++) {
                 enumerations.add(entries.get(i-1).get(ENUMERATION_PROPERTY).asText());
                 chronologies.add(entries.get(i-1).get(CHRONOLOGY_PROPERTY).asText());
-
-                // if (i == entries.size()) {
-                //     context.setVariable(ENUMERATION + "_" + LATEST, entries.get(i-1).get(ENUMERATION_PROPERTY));
-                //     context.setVariable(CHRONOLOGY + "_" + LATEST, entries.get(i-1).get(CHRONOLOGY_PROPERTY));
-                // }
             }
 
             context.setVariable(ENUMERATIONS, enumerations);
