@@ -42,10 +42,16 @@ Use custom label
 <location_code>
 <location_gloss>
 <current_date>
+<enum_latest>
+<chron_latest>
+<enum_n> *
+<chron_n> *
+
+* where n is the line number from receiving history (i.e. chron_2)
 ```
 
 ### seperate call number prefix
-| barcode      | hrid          |
+| barcode      | item hrid     |
 | ------------ | ------------- |
 | A14839145884 |               |
 
@@ -68,7 +74,7 @@ M55
 ```
 
 ### enumeration and chronology populated
-| barcode      | hrid          |
+| barcode      | item hrid     |
 | ------------ | ------------- |
 | A14811944997 | it00000000005 |
 | A14814371046 | it00000000006 |
@@ -111,7 +117,7 @@ v.2
 ```
 
 ### enumeration null, chronology populated
-| barcode      | hrid          |
+| barcode      | item hrid     |
 | ------------ | ------------- |
 | A14809369076 | it00000663749 |
 | A14809369084 | it00000663750 |
@@ -150,7 +156,7 @@ I15
 ```
 
 ### enumeration populated, chronology null
-| barcode      | hrid          |
+| barcode      | item hrid     |
 | ------------ | ------------- |
 | A14809356455 | it00000663732 |
 | A14809356463 | it00000663733 |
@@ -192,7 +198,7 @@ v.3
 ```
 
 ### barcode is null, so input hrid
-| barcode      | hrid          |
+| barcode      | item hrid     |
 | ------------ | ------------- |
 |              | it00000165938 |
 |              | it00000000042 |
@@ -227,7 +233,7 @@ C37
 ```
 
 ### location requiring special label printing
-| barcode      | hrid          | location_name |
+| barcode      | item hrid     | location_name |
 | ------------ | ------------- | ------------- |
 | A14823400064 | it00000498821 | mtxt,film     |
 | A14823883296 | it00000498822 | mtxt,film     |
@@ -361,6 +367,34 @@ JQ
 M5
 G68
 2004
+```
+
+### enumerations and chronologies from holdings by hrid
+| barcode      | holdings hrid |
+| ------------ | ------------- |
+|              | ho00000044909 |
+
+
+Custom
+
+XML sources:
+```
+%<call_number>
+<chron_1>
+<enum_1>
+<chron_latest>
+<enum_latest>
+```
+
+ho00000044909
+```
+UG
+633
+.A65
+(2021 May)
+v. 104, no. 5 
+(2020 Jan.-Feb.)
+v. 104, no. 1-2 
 ```
 
 ## Additional Information

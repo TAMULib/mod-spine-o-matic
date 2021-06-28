@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class SpineLabelService implements SpineLabelPrinter {
 
     private static final String ITEM_HRID_PREFIX = "it";
+    private static final String HOLDINGS_HRID_PREFIX = "ho";
     private static final String BARCODE_PREFIX = "A";
 
     @Autowired
@@ -20,17 +21,19 @@ public class SpineLabelService implements SpineLabelPrinter {
     public String getSpineLabel(String tenant, String identifier) {
 
         String token = okapiService.getToken(tenant);
-        JsonNode itemNode = null;
+        JsonNode recordNode = null;
 
-        if (identifier.startsWith(BARCODE_PREFIX)) {
-            itemNode = okapiService.fetchItemByBarcode(tenant, token, identifier);
+        if (identifier.startsWith(HOLDINGS_HRID_PREFIX)) {
+            recordNode = okapiService.fetchHoldingsByHRID(tenant, token, identifier);
         } else if (identifier.startsWith(ITEM_HRID_PREFIX)) {
-            itemNode = okapiService.fetchItemByItemHRID(tenant, token, identifier);
+            recordNode = okapiService.fetchItemByItemHRID(tenant, token, identifier);
+        } else if (identifier.startsWith(BARCODE_PREFIX)) {
+            recordNode = okapiService.fetchItemByBarcode(tenant, token, identifier);
         } else {
             throw new RuntimeException(String.format("Unable to determine identifer type for {}", identifier));
         }
 
-        return templatingService.templateResponse(itemNode);
+        return templatingService.templateResponse(recordNode);
     }
 
 }
