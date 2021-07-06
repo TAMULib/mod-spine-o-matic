@@ -24,7 +24,7 @@
     <enumeration>[(${enumeration})]</enumeration>
     <chronology>[(${chronology})]</chronology>
     <description></description>
-    <library desc="[(${library_description})]">[(${library_code})]</library>
+    <library desc="[[${library_description}]]">[(${library_code})]</library>
     <location desc="[(${location_name})]">[(${location_code})]</location>
     <location_gloss>[(${location_gloss})]</location_gloss>
   </item_data>

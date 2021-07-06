@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +18,8 @@ import edu.tamu.modspineomatic.model.Location;
 
 @Service
 public class TemplatingService {
+
+    private static final String OVERSIZE = "Oversize";
 
     private static final String SPINE_LABEL = "spine-label";
     private static final String ENUMERATION = "enumeration";
@@ -91,7 +91,8 @@ public class TemplatingService {
 
         JsonNode callNumberPrefixNode = itemNode.get(EFFECTIVE_CALL_NUMBER_PROPERTY).get(PREFIX_PROPERTY);
         if (callNumberPrefixNode != null) {
-            context.setVariable(CALL_NUMBER_PREFIX, callNumberPrefixNode.asText());
+            String prefixText = callNumberPrefixNode.asText().replaceAll(OVERSIZE, OVERSIZE.toUpperCase());
+            context.setVariable(CALL_NUMBER_PREFIX, prefixText);
         }
 
         String callNumberUUID = itemNode.get(EFFECTIVE_CALL_NUMBER_PROPERTY).get(TYPE_ID_PROPERTY).asText();
@@ -158,7 +159,8 @@ public class TemplatingService {
 
         JsonNode callNumberPrefixNode = holdingsNode.get(CALL_NUMBER_PREFIX_PROPERTY);
         if (callNumberPrefixNode != null) {
-            context.setVariable(CALL_NUMBER_PREFIX, callNumberPrefixNode.asText());
+            String prefixText = callNumberPrefixNode.asText().replaceAll(OVERSIZE, OVERSIZE.toUpperCase());
+            context.setVariable(CALL_NUMBER_PREFIX, prefixText);
         }
 
         String callNumberUUID = holdingsNode.get(CALL_NUMBER_TYPE_ID_PROPERTY).asText();
