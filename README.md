@@ -60,7 +60,7 @@ Custom
 XML sources:
 ```
 <call_number_prefix>
-%=parse <call_number>
+%<call_number>
 ```
 
 A14839145884
@@ -84,7 +84,7 @@ Custom
 
 XML sources:
 ```
-%=parse <call_number>
+%<call_number>
 <chronology>
 <enumeration>
 ```
@@ -119,15 +119,15 @@ v.2
 ### enumeration null, chronology populated
 | barcode      | item hrid     |
 | ------------ | ------------- |
-| A14809369076 | it00000663749 |
-| A14809369084 | it00000663750 |
-| A14809369092 | it00000663751 |
+| A14809369076 | it00000663619 |
+| A14809369084 | it00000663620 |
+| A14809369092 | it00000663621 |
 
 Custom
 
 XML sources:
 ```
-%=parse <call_number>
+%<call_number>
 <chronology>
 ```
 
@@ -158,15 +158,15 @@ I15
 ### enumeration populated, chronology null
 | barcode      | item hrid     |
 | ------------ | ------------- |
-| A14809356455 | it00000663732 |
-| A14809356463 | it00000663733 |
-| A14809356471 | it00000663734 |
+| A14809356455 | it00000663602 |
+| A14809356463 | it00000663603 |
+| A14809356471 | it00000663604 |
 
 Custom
 
 XML sources:
 ```
-%=parse <call_number>
+%<call_number>
 <enumeration>
 ```
 
@@ -200,15 +200,15 @@ v.3
 ### barcode is null, so input hrid
 | barcode      | item hrid     |
 | ------------ | ------------- |
-|              | it00000165938 |
+|              | it00000165900 |
 |              | it00000000042 |
-|              | it00000165945 |
+|              | it00000165904 |
 
 Spine
 
 SpineOMatic parsing `<call_number>`
 
-it00000165938
+it00000165900
 ```
 Z
 1006
@@ -224,7 +224,7 @@ J38
 1987
 ```
 
-it00000165945
+it00000165904
 ```
 Z
 1006
@@ -235,18 +235,18 @@ C37
 ### location requiring special label printing
 | barcode      | item hrid     | location_name |
 | ------------ | ------------- | ------------- |
-| A14823400064 | it00000498821 | mtxt,film     |
-| A14823883296 | it00000498822 | mtxt,film     |
-|              | it00000831473 | cush,wode     |
-|              | it00000748781 | cush,wode     |
-| A14809478998 | it00000667357 | wein          |
-| A14809479009 | it00000667360 | wein          |
-|              | it00002821308 | cush,afri     |
-|              | it00002821372 | cush,afri     |
-|              | it00002821509 | cush,afri     |
-|              | it00002933250 | cush,asia     |
-|              | it00002933253 | cush,asia     |
-|              | it00002690836 | cush,asia     |
+| A14823400064 | it00000498726 | mtxt,film     |
+| A14823883296 | it00000498727 | mtxt,film     |
+|              | it00000831297 | cush,wode     |
+|              | it00000748617 | cush,wode     |
+| A14809478998 | it00000667224 | wein          |
+| A14809479009 | it00000667227 | wein          |
+|              | it00002810941 | cush,afri     |
+|              | it00002811005 | cush,afri     |
+|              | it00002811142 | cush,afri     |
+|              | it00002922040 | cush,asia     |
+|              | it00002922043 | cush,asia     |
+|              | it00002681691 | cush,asia     |
 
 Custom
 
@@ -254,7 +254,7 @@ XML sources:
 ```
 <location_gloss>
 <call_number_prefix>
-%=parse <call_number>
+%<call_number>
 ```
 
 A14823400064
@@ -273,7 +273,7 @@ BR
 C6418
 ```
 
-it00000831473
+it00000831297
 ```
 Lit./Wodehouse
 PR
@@ -282,7 +282,7 @@ R8
 D5
 ```
 
-it00000748781
+it00000748617
 ```
 Lit./Wodehouse
 PZ
@@ -311,7 +311,7 @@ K3
 1986
 ```
 
-it00002821308
+it00002810941
 ```
 Area Studies/Africana
 E
@@ -320,7 +320,7 @@ A1
 M63
 ```
 
-it00002821372
+it00002811005
 ```
 Area Studies/Africana
 PS
@@ -330,7 +330,7 @@ Z95
 1989
 ```
 
-it00002821509
+it00002811142
 ```
 Area Studies/Africana
 E
@@ -339,7 +339,7 @@ W69
 1944
 ```
 
-it00002933250
+it00002922040
 ```
 Area Studies/Asian
 PL
@@ -349,7 +349,7 @@ S25
 2003
 ```
 
-it00002933253
+it00002922043
 ```
 Area Studies/Asian
 PS
@@ -359,7 +359,7 @@ S87
 2003
 ```
 
-it00002690836
+it00002681691
 ```
 Area Studies/Asian
 JQ
@@ -372,7 +372,7 @@ G68
 ### enumerations and chronologies from holdings by hrid
 | barcode      | holdings hrid |
 | ------------ | ------------- |
-|              | ho00000044909 |
+|              | ho00000044908 |
 
 
 Custom
@@ -386,11 +386,11 @@ XML sources:
 <enum_latest>
 ```
 
-ho00000044909
+ho00000044908
 ```
 UG
 633
-.A65
+A65
 (2021 May)
 v. 104, no. 5 
 (2020 Jan.-Feb.)
