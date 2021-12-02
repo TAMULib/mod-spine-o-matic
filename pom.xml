@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.folio</groupId>
         <artifactId>spring-module-core</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <groupId>edu.tamu</groupId>
     <artifactId>mod-spine-o-matic</artifactId>
