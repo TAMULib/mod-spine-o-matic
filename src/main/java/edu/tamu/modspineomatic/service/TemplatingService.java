@@ -19,8 +19,6 @@ import edu.tamu.modspineomatic.model.Location;
 @Service
 public class TemplatingService {
 
-    private static final String OVERSIZE = "Oversize";
-
     private static final String SPINE_LABEL = "spine-label";
     private static final String ENUMERATION = "enumeration";
     private static final String ENUMERATIONS = "enumerations";
@@ -91,7 +89,7 @@ public class TemplatingService {
 
         JsonNode callNumberPrefixNode = itemNode.get(EFFECTIVE_CALL_NUMBER_PROPERTY).get(PREFIX_PROPERTY);
         if (callNumberPrefixNode != null) {
-            String prefixText = callNumberPrefixNode.asText().replaceAll(OVERSIZE, OVERSIZE.toUpperCase());
+            String prefixText = callNumberPrefixNode.asText().toUpperCase();
             context.setVariable(CALL_NUMBER_PREFIX, prefixText);
         }
 
@@ -159,7 +157,7 @@ public class TemplatingService {
 
         JsonNode callNumberPrefixNode = holdingsNode.get(CALL_NUMBER_PREFIX_PROPERTY);
         if (callNumberPrefixNode != null) {
-            String prefixText = callNumberPrefixNode.asText().replaceAll(OVERSIZE, OVERSIZE.toUpperCase());
+            String prefixText = callNumberPrefixNode.asText().toUpperCase();
             context.setVariable(CALL_NUMBER_PREFIX, prefixText);
         }
 
