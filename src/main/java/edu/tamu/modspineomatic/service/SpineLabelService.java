@@ -27,7 +27,7 @@ public class SpineLabelService implements SpineLabelPrinter {
             recordNode = okapiService.fetchHoldingsByHRID(tenant, token, identifier);
         } else if (identifier.startsWith(ITEM_HRID_PREFIX)) {
             recordNode = okapiService.fetchItemByItemHRID(tenant, token, identifier);
-        } else if (identifier.startsWith(BARCODE_PREFIX)) {
+        } else if (identifier.startsWith(BARCODE_PREFIX) || Character.isDigit(identifier.charAt(0))) {
             recordNode = okapiService.fetchItemByBarcode(tenant, token, identifier);
         } else {
             throw new RuntimeException(String.format("Unable to determine identifer type for {}", identifier));
