@@ -1,72 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.folio</groupId>
-        <artifactId>spring-module-core</artifactId>
-        <version>1.1.0</version>
-    </parent>
-    <groupId>edu.tamu</groupId>
-    <artifactId>mod-spine-o-matic</artifactId>
-    <version>1.2.1-SNAPSHOT</version>
-    <name>mod-spine-o-matic</name>
-    <description>SpineOMatic Middleware</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <properties>
-        <java.version>11</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+  <modelVersion>4.0.0</modelVersion>
 
-    <repositories>
-        <repository>
-        <id>folio-nexus</id>
-        <name>FOLIO Maven repository</name>
-        <url>https://repository.folio.org/repository/maven-folio</url>
-        </repository>
-    </repositories>
+  <groupId>edu.tamu</groupId>
+  <artifactId>mod-spine-o-matic</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.folio</groupId>
-            <artifactId>spring-tenant</artifactId>
-            <version>1.1.0</version>
-        </dependency>
+  <version>1.2.1-RC1</version>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
+  <name>mod-spine-o-matic</name>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+  <description>SpineOMatic Middleware</description>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-    </dependencies>
+  <parent>
+    <groupId>org.folio</groupId>
+    <artifactId>spring-module-core</artifactId>
+    <version>1.1.1-RC2</version>
+  </parent>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                        <goal>repackage</goal>
-                        </goals>
-                        <configuration>
-                        <mainClass>edu.tamu.modspineomatic.ModSpineOMaticApplication</mainClass>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>folio-nexus</id>
+      <name>FOLIO Maven repository</name>
+      <url>https://repository.folio.org/repository/maven-folio</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.folio</groupId>
+      <artifactId>spring-tenant</artifactId>
+      <version>1.1.1-RC2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+            <configuration>
+              <mainClass>edu.tamu.modspineomatic.ModSpineOMaticApplication</mainClass>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
