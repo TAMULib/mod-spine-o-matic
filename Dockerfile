@@ -1,4 +1,4 @@
-# build base image
+# Build Layer
 FROM maven:3-openjdk-11-slim as maven
 
 # copy pom.xml
@@ -10,14 +10,21 @@ COPY ./src ./src
 # build
 RUN mvn package
 
-# final base image
-FROM openjdk:11-jre-slim
+# Host Layer
+FROM alpine:latest
+
+RUN apk add --no-cache openjdk11-jre
 
 # set deployment directory
 WORKDIR /mod-spine-o-matic
 
 # copy over the built artifact from the maven image
 COPY --from=maven /target/mod-spine-o-matic*.jar ./mod-spine-o-matic.jar
+
+# Run as non-root User
+RUN adduser appuser -u 1000 --disabled-password
+RUN chown -R appuser:appuser /mod-spine-o-matic
+USER appuser
 
 #Settings
 ENV LOGGING_LEVEL_TAMU='INFO'
