@@ -14,7 +14,8 @@ RUN mvn package
 FROM alpine:latest
 
 RUN apk add --no-cache openjdk11-jre
-RUN apk update --no-cache
+RUN apk update
+RUN apk upgrade --no-cache
 
 # set deployment directory
 WORKDIR /mod-spine-o-matic
